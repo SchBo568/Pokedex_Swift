@@ -44,7 +44,12 @@ struct Stat: Codable {
 // MARK: - TypeElement
 struct TypeElement: Codable {
     let slot: Int
-    let type: MoveClass
+    let type: Type
+}
+
+struct Type: Codable {
+    let name: String
+    let url: String
 }
 
 struct Pokemon: Codable{
