@@ -46,7 +46,7 @@ class PokeAPIService {
         }.resume()
     }
     
-    func fetchPokemonListSimple(completion: @escaping ([(name: String, url: String, color: String)]?) -> Void) {
+    func fetchPokemonListSimple(completion: @escaping ([(name: String, url: String, color: String, id: Int)]?) -> Void) {
         let urlString = "https://pokeapi.co/api/v2/pokedex/2"
         
         guard let url = URL(string: urlString) else {
@@ -74,7 +74,7 @@ class PokeAPIService {
                     
                     // Extract necessary information
                     if let pokemonEntries = json?["pokemon_entries"] as? [[String: Any]] {
-                        var parsedEntries: [(name: String, url: String, color: String)] = []
+                        var parsedEntries: [(name: String, url: String, color: String, id: Int)] = []
                         
                         let dispatchGroup = DispatchGroup()
                         
@@ -83,16 +83,16 @@ class PokeAPIService {
                             
                             if let pokemonName = entry["pokemon_species"] as? [String: Any],
                                let name = pokemonName["name"] as? String,
+                               let id = entry["entry_number"] as? Int,
                                let pokemonURL = pokemonName["url"] as? String {
                                 let splitted = pokemonURL.components(separatedBy: "/")
                                 let realUrl = "https://pokeapi.co/api/v2/pokemon/" + splitted[6]
                                 
                                 self.fetchPokemonTypes(for: realUrl) { types in
                                     if let type = types?.first {
-                                        parsedEntries.append((name: name, url: pokemonURL, color: type))
+                                        parsedEntries.append((name: name, url: pokemonURL, color: type, id: id))
                                     } else {
-                                        // Handle error or provide a default color
-                                        parsedEntries.append((name: name, url: pokemonURL, color: "default"))
+                                        parsedEntries.append((name: name, url: pokemonURL, color: "default", id: id))
                                     }
                                     dispatchGroup.leave()
                                 }
