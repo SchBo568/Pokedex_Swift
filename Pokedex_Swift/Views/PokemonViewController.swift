@@ -12,6 +12,8 @@ class PokemonViewController: ViewController{
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var image: UIImageView!
+    @IBOutlet var type1: UIImageView!
+    @IBOutlet var type2: UIImageView!
     
     override func viewDidLoad() {
         print(selectedPokemon!)
@@ -24,6 +26,8 @@ class PokemonViewController: ViewController{
                 }
             }
         }
+        
+        type1.image = UIImage(named: "Bug")
     }
     
     
