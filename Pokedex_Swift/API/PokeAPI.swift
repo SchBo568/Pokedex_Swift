@@ -9,10 +9,6 @@ import Foundation
 import UIKit
 class PokeAPIService {
     
-    
-    
-    
-    
     func fetchPokemonList(completion: @escaping ([PokemonEntry?]) -> Void){
         let urlString = "https://pokeapi.co/api/v2/pokedex/2"
         
