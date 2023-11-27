@@ -19,7 +19,6 @@
 		0382DA8C2B0B5DBE00BF59DA /* PokemonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0382DA8B2B0B5DBE00BF59DA /* PokemonList.swift */; };
 		038A2B362B1085D100D010E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 038A2B352B1085D100D010E4 /* Main.storyboard */; };
 		038A2B3A2B1087EE00D010E4 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 038A2B392B1087EE00D010E4 /* EntryViewController.swift */; };
-		03E0D8382B10AAAE00857771 /* PokemonView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 03E0D8372B10AAAE00857771 /* PokemonView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		0382DA8B2B0B5DBE00BF59DA /* PokemonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonList.swift; sourceTree = "<group>"; };
 		038A2B352B1085D100D010E4 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		038A2B392B1087EE00D010E4 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
-		03E0D8372B10AAAE00857771 /* PokemonView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PokemonView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				038A2B392B1087EE00D010E4 /* EntryViewController.swift */,
-				03E0D8372B10AAAE00857771 /* PokemonView.storyboard */,
 				031DBC7C2B10AB630020389E /* PokemonViewController.swift */,
 			);
 			path = Views;
@@ -171,7 +168,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				038A2B362B1085D100D010E4 /* Main.storyboard in Resources */,
-				03E0D8382B10AAAE00857771 /* PokemonView.storyboard in Resources */,
 				0321D7C42B074A9A0085844E /* LaunchScreen.storyboard in Resources */,
 				0321D7C12B074A9A0085844E /* Assets.xcassets in Resources */,
 				0321D7BF2B074A990085844E /* PokemonView.storyboard in Resources */,
