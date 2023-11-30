@@ -24,9 +24,15 @@ class PokemonViewController: ViewController{
     @IBOutlet var speed: UILabel!
     
     override func viewDidLoad() {
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background") // Set the image
+        backgroundImage.contentMode = .scaleAspectFill
+        view.insertSubview(backgroundImage, at: 0)
+        view.sendSubviewToBack(backgroundImage)
+        
         api.fetchPokemon(name: selectedPokemon!.name) { pokemon in
             DispatchQueue.main.async {
-                print(pokemon)
                 self.nameLabel.text = pokemon?.name.capitalized
                 if let frontDefaultURL = pokemon?.sprites.front_default {
                     self.loadImageFromURL(url: frontDefaultURL)
@@ -37,6 +43,9 @@ class PokemonViewController: ViewController{
                 if((pokemon?.types.count)! > 1){
                     self.type2.image = UIImage(named: (pokemon?.types[1].type.name.capitalized)!)
                 }
+                else{
+                    self.type2.image = UIImage(named: "None")
+                }
                 
                 self.weight.text = "\(self.weight.text ?? "") \(pokemon?.weight ?? 0) g"
                 self.height.text = "\(self.height.text ?? "") \(pokemon?.height ?? 0) cm"
@@ -45,7 +54,7 @@ class PokemonViewController: ViewController{
                 self.defense.text = "\(self.defense.text ?? "") \(pokemon!.stats[2].base_stat)"
                 self.specialAttack.text = "\(self.specialAttack.text ?? "") \(pokemon!.stats[3].base_stat)"
                 self.specialDefense.text = "\(self.specialDefense.text ?? "") \(pokemon!.stats[4].base_stat)"
-                self.speed.text = "\(self.speed.text ?? "") \(String(describing: pokemon?.stats[5].base_stat))"
+                self.speed.text = "\(self.speed.text ?? "") \(String(describing: pokemon!.stats[5].base_stat))"
 
             }
         }

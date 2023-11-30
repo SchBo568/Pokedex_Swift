@@ -61,7 +61,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Instantiate a new view controller to display details
         if let pokemonViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PokemonViewController") as?
             PokemonViewController {
-                print("kibgrjwrbngwonwgnvoewrbhgoiewngeowjrgheuwrbho")
                 // Configure the PokemonViewController with selected data
                 pokemonViewController.selectedPokemon = selectedPokemon
                 
@@ -80,10 +79,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet var testLabel: UILabel!
-    
+    @IBOutlet var tableView: UITableView!    
     override func viewDidLoad() {
+        
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "Background") // Set the image
+        backgroundImage.contentMode = .scaleAspectFill
+        view.insertSubview(backgroundImage, at: 0)
+        view.sendSubviewToBack(backgroundImage)
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -100,8 +103,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         api.fetchPokemon(name: "pikachu") { pokemon in
             DispatchQueue.main.async {
                 if let pokemon = pokemon {
-                    self.testLabel.text = pokemon.name
-                    
                     self.tableView.reloadData()
                 } else {
                     print("Failed to fetch Pokemon.")
